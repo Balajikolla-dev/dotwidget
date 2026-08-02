@@ -85,3 +85,55 @@ btnCopy.addEventListener('click', () => {
 });
 
 renderGallery();
+
+// Global state for active modal widget
+let activeWidgetPath = "10-weather"; // Default fallback
+let currentTab = "notion"; // 'notion' or 'iframe'
+
+const BASE_URL = "https://Balajikolla-dev.github.io/dotwidget";
+
+// Function called when user clicks "Get Embed Code" on any card
+function openWidgetModal(widgetPath, height = "320px") {
+  activeWidgetPath = widgetPath;
+  activeWidgetHeight = height;
+  
+  // Show modal/sidebar UI
+  document.getElementById("modal-sidebar").classList.add("open");
+  
+  // Update code box display
+  updateEmbedCodeBox();
+}
+
+// Switch between Notion and HTML Iframe tabs
+function switchEmbedTab(tabType) {
+  currentTab = tabType;
+  
+  document.getElementById("tab-notion").classList.toggle("active", tabType === "notion");
+  document.getElementById("tab-iframe").classList.toggle("active", tabType === "iframe");
+  
+  updateEmbedCodeBox();
+}
+
+// Render the appropriate string inside textarea
+function updateEmbedCodeBox() {
+  const codeBox = document.getElementById("embed-code-box");
+  const fullUrl = `${BASE_URL}/${activeWidgetPath}/index.html`;
+  
+  if (currentTab === "notion") {
+    codeBox.value = fullUrl;
+  } else {
+    codeBox.value = `<iframe src="${fullUrl}" width="100%" height="${activeWidgetHeight || '380px'}" frameborder="0" scrolling="no" style="border-radius: 16px; border: none; overflow: hidden;"></iframe>`;
+  }
+}
+
+// Copy button function
+function copyCurrentEmbedCode() {
+  const codeBox = document.getElementById("embed-code-box");
+  navigator.clipboard.writeText(codeBox.value).then(() => {
+    const btn = document.getElementById("copy-btn");
+    btn.innerText = "Copied!";
+    setTimeout(() => {
+      btn.innerText = "Copy Code";
+    }, 2000);
+  });
+}

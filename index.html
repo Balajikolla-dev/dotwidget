@@ -132,6 +132,24 @@
     </div>
   </section>
 
+  <!-- Inside your Modal / Sidebar Drawer -->
+  <div class="embed-section">
+    <div class="embed-header">
+      <label>EMBED CODE</label>
+      <!-- Toggle Tabs -->
+      <div class="embed-tabs">
+        <button id="tab-notion" class="tab-btn active" onclick="switchEmbedTab('notion')">Notion Link</button>
+        <button id="tab-iframe" class="tab-btn" onclick="switchEmbedTab('iframe')">HTML Iframe</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Code Preview Box -->
+    <div class="code-box-wrapper">
+      <textarea id="embed-code-box" readonly rows="4"></textarea>
+      <button id="copy-btn" class="copy-purple-btn" onclick="copyCurrentEmbedCode()">Copy Code</button>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="apple-footer">
     <div class="footer-container">
