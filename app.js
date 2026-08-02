@@ -1,41 +1,40 @@
 /**
- * DotWidget — Engine Architecture
- * Handles widget selection, live iframe previewing, and dynamic embed code generation.
+ * DotWidget — Interactive Engine with Mobile Navigation & Response Handler
  */
 
 (function () {
   'use strict';
 
-  // --- Configuration & Widget Registry ---
   const CONFIG = {
     baseUrl: 'https://Balajikolla-dev.github.io/dotwidget',
-    copyResetDelayMs: 2000
+    resetDelayMs: 2000
   };
 
   const WIDGETS = [
-    { id: '01-flip-clock', name: 'Flip Clock', desc: 'Minimalist flip-animated time display with smooth transitions.', defaultHeight: '380px' },
-    { id: '02-calendar', name: 'Calendar', desc: 'Interactive monthly view calendar for date tracking.', defaultHeight: '360px' },
-    { id: '03-stopwatch', name: 'Stopwatch', desc: 'Precision split-second stopwatch with lap history.', defaultHeight: '380px' },
-    { id: '04-countdown', name: 'Countdown', desc: 'Target date countdown for events, launches, and goals.', defaultHeight: '320px' },
-    { id: '05-pomodoro', name: 'Pomodoro Timer', desc: 'Focus session productivity timer with interval alerts.', defaultHeight: '380px' },
-    { id: '06-habit', name: 'Habit Tracker', desc: 'Streak-tracking daily checklist widget for micro-habits.', defaultHeight: '400px' },
-    { id: '07-calculator', name: 'Calculator & Unit Converter', desc: 'Scientific math utility combined with metric unit conversion.', defaultHeight: '460px' },
-    { id: '08-progress', name: 'Year Progress', desc: 'Real-time year completion tracker with days & weeks stats.', defaultHeight: '340px' },
-    { id: '09-heatmap', name: 'GitHub Profile & Heatmap', desc: 'Fetches public GitHub profiles, contribution graphs, and top repos.', defaultHeight: '480px' },
-    { id: '10-weather', name: 'Weather Forecast', desc: 'Real-time weather metrics with city search.', defaultHeight: '320px' }
+    { id: '01-flip-clock', name: 'Flip Clock', desc: 'Minimalist flip-animated time display with smooth transitions.', defaultHeight: '380px', tag: 'Timer', tagClass: 'tag-green', pinClass: 'pin-green' },
+    { id: '02-calendar', name: 'Calendar', desc: 'Interactive monthly view calendar for date tracking.', defaultHeight: '360px', tag: 'Productivity', tagClass: 'tag-blue', pinClass: 'pin-blue' },
+    { id: '03-stopwatch', name: 'Stopwatch', desc: 'Precision split-second stopwatch with lap history.', defaultHeight: '380px', tag: 'Utility', tagClass: 'tag-amber', pinClass: 'pin-amber' },
+    { id: '04-countdown', name: 'Countdown', desc: 'Target date countdown for events, launches, and goals.', defaultHeight: '320px', tag: 'Timer', tagClass: 'tag-green', pinClass: 'pin-green' },
+    { id: '05-pomodoro', name: 'Pomodoro Timer', desc: 'Focus session productivity timer with interval alerts.', defaultHeight: '380px', tag: 'Productivity', tagClass: 'tag-blue', pinClass: 'pin-blue' },
+    { id: '06-habit', name: 'Habit Tracker', desc: 'Streak-tracking daily checklist widget for micro-habits.', defaultHeight: '400px', tag: 'Tracker', tagClass: 'tag-purple', pinClass: 'pin-purple' },
+    { id: '07-calculator', name: 'Calculator', desc: 'Scientific math utility combined with metric unit conversion.', defaultHeight: '460px', tag: 'Utility', tagClass: 'tag-amber', pinClass: 'pin-amber' },
+    { id: '08-progress', name: 'Year Progress', desc: 'Real-time year completion tracker with days & weeks stats.', defaultHeight: '340px', tag: 'Tracker', tagClass: 'tag-purple', pinClass: 'pin-purple' },
+    { id: '09-heatmap', name: 'GitHub Profile', desc: 'Fetches public GitHub profiles, contribution graphs, and repos.', defaultHeight: '480px', tag: 'Developer', tagClass: 'tag-blue', pinClass: 'pin-blue' },
+    { id: '10-weather', name: 'Weather Forecast', desc: 'Real-time weather metrics with city search.', defaultHeight: '320px', tag: 'Utility', tagClass: 'tag-amber', pinClass: 'pin-amber' }
   ];
 
-  // --- Application State ---
   const state = {
     selectedWidget: null,
-    activeTab: 'notion', // 'notion' | 'iframe'
-    copyTimeoutId: null
+    activeTab: 'notion',
+    activeCategory: 'all'
   };
 
-  // --- DOM Elements Cache ---
   const DOM = {
+    heroCarousel: document.getElementById('hero-carousel'),
     galleryGrid: document.getElementById('gallery-grid'),
+    filterBar: document.getElementById('category-filter-bar'),
     embedPanel: document.getElementById('embed-panel'),
+    panelBackdrop: document.getElementById('panel-backdrop'),
     appMain: document.querySelector('.app-main'),
     panelTitle: document.getElementById('panel-widget-title'),
     previewFrame: document.getElementById('preview-frame'),
@@ -45,36 +44,73 @@
     btnClose: document.getElementById('btn-close-panel'),
     btnCopy: document.getElementById('btn-copy-code'),
     tabNotion: document.getElementById('tab-notion'),
-    tabIframe: document.getElementById('tab-iframe')
+    tabIframe: document.getElementById('tab-iframe'),
+    mobileToggle: document.getElementById('mobile-menu-toggle'),
+    navLinks: document.getElementById('nav-links')
   };
 
-  // --- Core Functions ---
+  function renderHeroCarousel() {
+    if (!DOM.heroCarousel) return;
 
-  /**
-   * Render widget cards into the grid container using fragments for optimal DOM paint performance.
-   */
+    const carouselWidgets = [...WIDGETS, ...WIDGETS];
+    const fragment = document.createDocumentFragment();
+
+    carouselWidgets.forEach((widget) => {
+      const card = document.createElement('div');
+      card.className = 'hanging-card';
+
+      card.innerHTML = `
+        <div class="pin-clip ${widget.pinClass}"></div>
+        <div class="card-mini-ui clock-ui">
+          <span class="time-digit">10:42</span>
+          <span class="time-ampm">AM</span>
+        </div>
+        <div class="card-info">
+          <span class="card-tag ${widget.tagClass}">${widget.tag}</span>
+          <h4>${widget.name}</h4>
+        </div>
+      `;
+
+      card.addEventListener('click', () => selectWidget(widget, true));
+      fragment.appendChild(card);
+    });
+
+    DOM.heroCarousel.innerHTML = '';
+    DOM.heroCarousel.appendChild(fragment);
+  }
+
   function renderGallery() {
     if (!DOM.galleryGrid) return;
 
+    const filteredWidgets = state.activeCategory === 'all' 
+      ? WIDGETS 
+      : WIDGETS.filter(w => w.tag === state.activeCategory);
+
     const fragment = document.createDocumentFragment();
 
-    WIDGETS.forEach((widget, index) => {
-      const card = document.createElement('article');
+    filteredWidgets.forEach((widget) => {
+      const card = document.createElement('div');
       card.className = 'widget-card';
-      card.dataset.id = widget.id;
+      if (state.selectedWidget?.id === widget.id) {
+        card.classList.add('active-selected');
+      }
 
-      const formattedIndex = String(index + 1).padStart(2, '0');
+      const globalIndex = WIDGETS.findIndex(w => w.id === widget.id);
+      const formattedIndex = String(globalIndex + 1).padStart(2, '0');
 
       card.innerHTML = `
         <div>
-          <span class="card-num">${formattedIndex}</span>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="card-num">#${formattedIndex}</span>
+            <span class="card-tag ${widget.tagClass}">${widget.tag}</span>
+          </div>
           <h3 class="card-title">${widget.name}</h3>
           <p class="card-desc">${widget.desc}</p>
         </div>
-        <button class="card-btn" type="button" aria-label="Select ${widget.name}">Get Embed Code &rarr;</button>
+        <button class="card-btn" type="button">Get Embed Link &rarr;</button>
       `;
 
-      card.addEventListener('click', () => handleWidgetSelect(widget));
+      card.addEventListener('click', () => selectWidget(widget));
       fragment.appendChild(card);
     });
 
@@ -82,52 +118,53 @@
     DOM.galleryGrid.appendChild(fragment);
   }
 
-  /**
-   * Handles selecting a widget card and updating the active state.
-   */
-  function handleWidgetSelect(widget) {
-    if (state.selectedWidget?.id === widget.id) return;
+  function handleFilterClick(e) {
+    const btn = e.target.closest('.filter-pill');
+    if (!btn) return;
 
+    DOM.filterBar.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    state.activeCategory = btn.dataset.category;
+    renderGallery();
+  }
+
+  function selectWidget(widget, scrollToGrid = false) {
     state.selectedWidget = widget;
     DOM.panelTitle.textContent = widget.name;
     DOM.inputHeight.value = widget.defaultHeight;
 
-    // Load internal preview relative path
     DOM.previewFrame.src = `./${widget.id}/index.html`;
-
-    updateEmbedOutput();
+    updateOutput();
 
     DOM.embedPanel.classList.remove('hidden');
+    if (DOM.panelBackdrop) DOM.panelBackdrop.classList.add('active');
     DOM.appMain.classList.add('has-active-panel');
+
+    renderGallery();
+
+    if (scrollToGrid) {
+      document.getElementById('widgets').scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
-  /**
-   * Closes the widget detail & code generation panel.
-   */
   function closePanel() {
     state.selectedWidget = null;
     DOM.embedPanel.classList.add('hidden');
+    if (DOM.panelBackdrop) DOM.panelBackdrop.classList.remove('active');
     DOM.appMain.classList.remove('has-active-panel');
     DOM.previewFrame.src = 'about:blank';
+    renderGallery();
   }
 
-  /**
-   * Switches the active tab mode ('notion' or 'iframe').
-   */
-  function setTabMode(mode) {
-    if (state.activeTab === mode) return;
-
+  function setTab(mode) {
     state.activeTab = mode;
     DOM.tabNotion.classList.toggle('active', mode === 'notion');
     DOM.tabIframe.classList.toggle('active', mode === 'iframe');
-
-    updateEmbedOutput();
+    updateOutput();
   }
 
-  /**
-   * Generates embed string dynamically based on dimensions and active tab mode.
-   */
-  function updateEmbedOutput() {
+  function updateOutput() {
     if (!state.selectedWidget) return;
 
     const width = DOM.inputWidth.value.trim() || '100%';
@@ -136,65 +173,63 @@
 
     if (state.activeTab === 'notion') {
       DOM.codeOutput.value = fullUrl;
+      DOM.btnCopy.textContent = 'Copy Notion Link';
     } else {
       DOM.codeOutput.value = `<iframe src="${fullUrl}" width="${width}" height="${height}" frameborder="0" scrolling="no" style="border-radius: 12px; border: none; overflow: hidden;"></iframe>`;
+      DOM.btnCopy.textContent = 'Copy HTML Iframe';
     }
   }
 
-  /**
-   * Copies current code block output to the system clipboard with tactile UI feedback.
-   */
-  async function copyToClipboard() {
+  async function copyCode() {
     if (!DOM.codeOutput.value) return;
 
     try {
       await navigator.clipboard.writeText(DOM.codeOutput.value);
-      
-      DOM.btnCopy.textContent = 'Copied to Clipboard';
-      DOM.btnCopy.style.background = 'var(--accent-cyan)';
-      DOM.btnCopy.style.color = '#000';
+      const originalText = DOM.btnCopy.textContent;
+      DOM.btnCopy.textContent = 'Copied to Clipboard! ✨';
 
-      if (state.copyTimeoutId) clearTimeout(state.copyTimeoutId);
-
-      state.copyTimeoutId = setTimeout(() => {
-        DOM.btnCopy.textContent = state.activeTab === 'notion' ? 'Copy Link' : 'Copy Code';
-        DOM.btnCopy.style.background = '';
-        DOM.btnCopy.style.color = '';
-      }, CONFIG.copyResetDelayMs);
+      setTimeout(() => {
+        DOM.btnCopy.textContent = originalText;
+      }, CONFIG.resetDelayMs);
     } catch (err) {
-      // Fallback selection strategy if clipboard API fails or is restricted
       DOM.codeOutput.select();
       document.execCommand('copy');
-      DOM.btnCopy.textContent = 'Copied!';
     }
   }
 
-  // --- Event Listeners Setup ---
-  function bindEvents() {
-    DOM.inputWidth.addEventListener('input', updateEmbedOutput);
-    DOM.inputHeight.addEventListener('input', updateEmbedOutput);
+  function toggleMobileMenu() {
+    if (DOM.navLinks) {
+      DOM.navLinks.classList.toggle('nav-open');
+    }
+  }
 
-    DOM.tabNotion.addEventListener('click', () => setTabMode('notion'));
-    DOM.tabIframe.addEventListener('click', () => setTabMode('iframe'));
+  function bindEvents() {
+    DOM.inputWidth.addEventListener('input', updateOutput);
+    DOM.inputHeight.addEventListener('input', updateOutput);
+
+    DOM.tabNotion.addEventListener('click', () => setTab('notion'));
+    DOM.tabIframe.addEventListener('click', () => setTab('iframe'));
 
     DOM.btnClose.addEventListener('click', closePanel);
-    DOM.btnCopy.addEventListener('click', copyToClipboard);
+    if (DOM.panelBackdrop) DOM.panelBackdrop.addEventListener('click', closePanel);
+    DOM.btnCopy.addEventListener('click', copyCode);
+    DOM.filterBar.addEventListener('click', handleFilterClick);
 
-    // Keyboard Accessibility Support (Esc key to close panel)
+    if (DOM.mobileToggle) {
+      DOM.mobileToggle.addEventListener('click', toggleMobileMenu);
+    }
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && state.selectedWidget) {
-        closePanel();
-      }
+      if (e.key === 'Escape' && state.selectedWidget) closePanel();
     });
   }
 
-  // --- Initialization ---
   function init() {
+    renderHeroCarousel();
     renderGallery();
     bindEvents();
   }
 
-  // Execute on DOM Ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
