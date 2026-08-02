@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget calendar-widget">
+      <!-- Calendar Header -->
+      <div class="calendar-header">
+        <button id="prev-month" class="nav-btn" aria-label="Previous Month">&lt;</button>
+        <span id="month-year" class="month-label">Month Year</span>
+        <button id="next-month" class="nav-btn" aria-label="Next Month">&gt;</button>
+      </div>
+
+      <!-- Days of Week -->
+      <div class="calendar-weekdays">
+        <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+      </div>
+
+      <!-- Calendar Days Grid -->
+      <div id="calendar-days" class="calendar-days"></div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

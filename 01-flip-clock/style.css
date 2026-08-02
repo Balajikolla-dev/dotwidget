@@ -1,0 +1,144 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0d0e10;
+}
+
+.flip-clock-container {
+  padding: 2.5rem 3rem;
+  background: rgba(18, 20, 24, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+}
+
+.flip-clock {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  user-select: none;
+}
+
+.separator {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f7e15e;
+  margin: 0 0.2rem;
+  line-height: 1;
+}
+
+/* Base Card Shell */
+.flip-card {
+  position: relative;
+  width: 60px;
+  height: 90px;
+  background-color: #1e2026;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  color: #f7e15e;
+  perspective: 300px;
+}
+
+/* Static Halves & Animating Flaps */
+.flip-card .top,
+.flip-card .bottom,
+.flip-card .top-flip,
+.flip-card .bottom-flip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  overflow: hidden;
+  background-color: #1e2026;
+  backface-visibility: hidden;
+}
+
+.flip-card .top,
+.flip-card .top-flip {
+  top: 0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #0d0e10;
+  transform-origin: bottom;
+}
+
+.flip-card .bottom,
+.flip-card .bottom-flip {
+  bottom: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transform-origin: top;
+}
+
+/* Number Centering via Absolute Offset */
+.digit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top .digit,
+.top-flip .digit {
+  top: 0;
+}
+
+.bottom .digit,
+.bottom-flip .digit {
+  bottom: 0;
+}
+
+/* Side Notch Details */
+.flip-card::before,
+.flip-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 6px;
+  background: #0d0e10;
+  margin-top: -3px;
+  z-index: 20;
+}
+
+.flip-card::before { left: 0; border-radius: 0 2px 2px 0; }
+.flip-card::after { right: 0; border-radius: 2px 0 0 2px; }
+
+/* 3D Animations */
+.flip-card .top-flip {
+  animation: flip-top 250ms ease-in forwards;
+}
+
+.flip-card .bottom-flip {
+  animation: flip-bottom 250ms ease-out 250ms forwards;
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-bottom {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+.flip-card .top-flip {
+  animation: flip-top 150ms ease-in forwards;
+}
+
+.flip-card .bottom-flip {
+  animation: flip-bottom 150ms ease-out 150ms forwards;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Year Progress — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget progress-container">
+      <div class="widget-label">YEAR PROGRESS</div>
+
+      <!-- Main Year Progress Header -->
+      <div class="year-card">
+        <div class="year-header">
+          <span id="year-title" class="year-title">2026</span>
+          <span id="year-percent" class="year-percent">0%</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="year-bar" class="progress-bar-fill" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Remaining Time Grid -->
+      <div class="time-left-title">REMAINING TO COMPLETE</div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span id="days-left" class="stat-num">0</span>
+          <span class="stat-label">DAYS</span>
+        </div>
+        <div class="stat-card">
+          <span id="weeks-left" class="stat-num">0</span>
+          <span class="stat-label">WEEKS</span>
+        </div>
+        <div class="stat-card">
+          <span id="months-left" class="stat-num">0</span>
+          <span class="stat-label">MONTHS</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

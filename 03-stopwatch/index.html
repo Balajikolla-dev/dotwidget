@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stopwatch — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget stopwatch-container">
+      <div class="widget-label">STOPWATCH</div>
+
+      <!-- Main Display -->
+      <div class="stopwatch-display">
+        <span id="display-time">00:00.00</span>
+      </div>
+
+      <!-- Control Buttons -->
+      <div class="stopwatch-controls">
+        <button id="btn-lap" class="btn btn-secondary" disabled>Lap</button>
+        <button id="btn-start" class="btn btn-primary">Start</button>
+        <button id="btn-reset" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <!-- Lap Times List -->
+      <div id="laps-container" class="laps-container">
+        <ul id="laps-list" class="laps-list"></ul>
+      </div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

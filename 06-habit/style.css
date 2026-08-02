@@ -1,0 +1,152 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.habit-container {
+  width: 340px;
+  align-items: center;
+  gap: 1.25rem;
+  user-select: none;
+}
+
+.widget-label {
+  font-family: var(--dw-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--dw-text-secondary);
+  text-transform: uppercase;
+}
+
+/* Input Form */
+.habit-form {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.habit-form input {
+  flex: 1;
+  background: var(--dw-bg-secondary);
+  border: 1px solid var(--dw-surface-border);
+  border-radius: var(--dw-radius-sm);
+  padding: 0.6rem 0.8rem;
+  color: var(--dw-text-primary);
+  font-family: var(--dw-font-mono);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color var(--dw-transition-fast);
+}
+
+.habit-form input:focus {
+  border-color: var(--dw-accent-green);
+}
+
+.btn-add {
+  width: 40px;
+  height: 40px;
+  background: var(--dw-accent-green);
+  border: none;
+  border-radius: var(--dw-radius-sm);
+  color: #000;
+  font-size: 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform var(--dw-transition-fast), filter var(--dw-transition-fast);
+}
+
+.btn-add:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Habit List */
+.habits-list-wrapper {
+  width: 100%;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.habits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.habit-card {
+  background: var(--dw-surface);
+  border: 1px solid var(--dw-surface-border);
+  border-radius: var(--dw-radius-sm);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.habit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.habit-title {
+  font-family: var(--dw-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dw-text-primary);
+}
+
+.habit-delete {
+  background: none;
+  border: none;
+  color: var(--dw-text-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 4px;
+  transition: color var(--dw-transition-fast);
+}
+
+.habit-delete:hover {
+  color: var(--dw-accent-red);
+}
+
+/* Day Trackers */
+.days-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.day-chip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--dw-bg-secondary);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: all var(--dw-transition-fast);
+}
+
+.day-chip span {
+  font-family: var(--dw-font-mono);
+  font-size: 0.65rem;
+  color: var(--dw-text-secondary);
+}
+
+.day-chip.completed {
+  background: var(--dw-accent-green);
+  border-color: var(--dw-accent-green);
+}
+
+.day-chip.completed span {
+  color: #000000;
+  font-weight: 700;
+}

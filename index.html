@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DotWidget — Precision Web Components</title>
+
+  <link rel="stylesheet" href="shared/css/variables.css">
+  <link rel="stylesheet" href="shared/css/base.css">
+  <link rel="stylesheet" href="shared/css/widget.css">
+  <link rel="stylesheet" href="shared/css/buttons.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Glass Navigation -->
+  <nav class="apple-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo"><span class="dot">●</span> DotWidget</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#benefits">What You Get</a>
+        <a href="#widgets">Collection</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <span class="hero-badge">GLASSMORPHIC ENGINE</span>
+      <h1 class="hero-title">Elegance in every pixel.</h1>
+      <p class="hero-subtitle">
+        A suite of 10 ultra-minimalist, lightweight web widgets crafted for high-performance websites, productivity suites, and custom dashboards.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#widgets" class="btn-apple-primary">Explore Collection</a>
+        <a href="#about" class="btn-apple-secondary">Learn Architecture &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="apple-section">
+    <div class="section-container">
+      <span class="section-tag">PHILOSOPHY</span>
+      <h2 class="section-heading">Designed with restraint.<br>Engineered for ultimate speed.</h2>
+      <p class="section-lead">
+        DotWidget eliminates bloated third-party embeds. Most web components come packaged with tracking scripts, heavy frameworks, and sluggish stylesheet overlays. DotWidget is built purely on **vanilla JavaScript** and **CSS variables**—delivering **near-zero runtime latency** with zero external dependencies.
+      </p>
+    </div>
+  </section>
+
+  <!-- What You Get Section -->
+  <section id="benefits" class="apple-section">
+    <div class="section-container">
+      <span class="section-tag">CAPABILITIES</span>
+      <h2 class="section-heading">Everything you need.<br>Nothing you don't.</h2>
+
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="bento-icon">⚡</div>
+          <h3>Zero Dependencies</h3>
+          <p>Built with pure HTML, CSS, and JS. No heavy libraries, no tracking scripts, and instant load times everywhere.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🎯</div>
+          <h3>Single-Click Embed</h3>
+          <p>Copy responsive <code>&lt;iframe&gt;</code> code tailored specifically to your required container dimensions.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🌓</div>
+          <h3>Theme Adaptive</h3>
+          <p>Built with CSS design variables that seamlessly adapt to your site's dark or light theme preferences.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🔒</div>
+          <h3>Privacy Preserving</h3>
+          <p>All data stays local. We leverage local Storage APIs so user inputs never touch external tracking servers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Widget Collection Showcase -->
+  <section id="widgets" class="apple-section">
+    <div class="section-container">
+      <span class="section-tag">THE COLLECTION</span>
+      <h2 class="section-heading">10 Purpose-built widgets.</h2>
+      <p class="section-lead">Select any widget to test live interactivity and copy the embed code.</p>
+
+      <div class="app-main">
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="gallery-grid"></div>
+
+        <!-- Sticky Glass Preview Side Panel -->
+        <aside id="embed-panel" class="embed-panel hidden">
+          <div class="panel-header">
+            <h3 id="panel-widget-title" class="panel-title">Widget Preview</h3>
+            <button id="btn-close-panel" class="btn-close" aria-label="Close panel">✕</button>
+          </div>
+
+          <div class="preview-box">
+            <div class="preview-header">LIVE PREVIEW</div>
+            <iframe id="preview-frame" src="" frameborder="0"></iframe>
+          </div>
+
+          <div class="panel-controls">
+            <h4 class="controls-title">CUSTOMIZATION</h4>
+
+            <div class="control-row">
+              <label for="opt-width">Width</label>
+              <input type="text" id="opt-width" value="100%">
+            </div>
+
+            <div class="control-row">
+              <label for="opt-height">Height</label>
+              <input type="text" id="opt-height" value="400px">
+            </div>
+
+            <div class="code-header">
+              <span>EMBED CODE</span>
+              <button id="btn-copy-code" class="btn-copy">Copy Code</button>
+            </div>
+            <textarea id="embed-code-output" readonly></textarea>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="apple-footer">
+    <div class="footer-container">
+      <p>© 2026 DotWidget. Built with precision and vanilla performance.</p>
+    </div>
+  </footer>
+
+  <script src="shared/js/storage.js"></script>
+  <script src="shared/js/theme.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

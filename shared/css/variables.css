@@ -1,0 +1,52 @@
+/* shared/css/variables.css */
+
+:root {
+  /* Brand Palette (Apple Stealth x Nothing Monochrome) */
+  --dw-bg-primary: #0a0a0c;
+  --dw-bg-secondary: #141418;
+  --dw-surface: rgba(255, 255, 255, 0.05);
+  --dw-surface-hover: rgba(255, 255, 255, 0.08);
+  --dw-surface-border: rgba(255, 255, 255, 0.1);
+  
+  /* Text Colors */
+  --dw-text-primary: #f5f5f7;
+  --dw-text-secondary: #86868b;
+  --dw-text-muted: #424245;
+
+  /* Accent Colors (Nothing Red & Apple Neon) */
+  --dw-accent-red: #d71921;
+  --dw-accent-orange: #ff9500;
+  --dw-accent-green: #30d158;
+  --dw-accent-blue: #0a84ff;
+
+  /* Typography */
+  --dw-font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  --dw-font-mono: "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+
+  /* Layout & Widget Specs */
+  --dw-radius-sm: 12px;
+  --dw-radius-md: 20px;
+  --dw-radius-lg: 28px;
+  
+  /* Shadows & Glassmorphism */
+  --dw-glass-blur: blur(20px);
+  --dw-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --dw-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --dw-transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --dw-transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme Override */
+[data-theme="light"] {
+  --dw-bg-primary: #f5f5f7;
+  --dw-bg-secondary: #ffffff;
+  --dw-surface: rgba(0, 0, 0, 0.03);
+  --dw-surface-hover: rgba(0, 0, 0, 0.06);
+  --dw-surface-border: rgba(0, 0, 0, 0.08);
+
+  --dw-text-primary: #1d1d1f;
+  --dw-text-secondary: #86868b;
+  --dw-text-muted: #86868b;
+}

@@ -1,0 +1,117 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.pomodoro-container {
+  width: 320px;
+  align-items: center;
+  gap: 1.25rem;
+  user-select: none;
+}
+
+.widget-label {
+  font-family: var(--dw-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--dw-text-secondary);
+  text-transform: uppercase;
+}
+
+/* Tabs */
+.mode-tabs {
+  display: flex;
+  background: var(--dw-bg-secondary);
+  border: 1px solid var(--dw-surface-border);
+  border-radius: var(--dw-radius-sm);
+  padding: 4px;
+  gap: 4px;
+  width: 100%;
+}
+
+.tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--dw-text-secondary);
+  font-family: var(--dw-font-mono);
+  font-size: 0.7rem;
+  padding: 6px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--dw-transition-fast);
+}
+
+.tab-btn.active {
+  background: var(--dw-surface-hover);
+  color: var(--dw-text-primary);
+  font-weight: 600;
+}
+
+/* Display */
+.pomodoro-display {
+  font-family: var(--dw-font-mono);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--dw-text-primary);
+  letter-spacing: -1px;
+}
+
+/* Controls */
+.pomodoro-controls {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.65rem 0;
+  border-radius: var(--dw-radius-sm);
+  font-family: var(--dw-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--dw-transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--dw-accent-red);
+  color: #ffffff;
+}
+
+.btn-primary.active {
+  background-color: var(--dw-accent-orange);
+}
+
+.btn-secondary {
+  background: var(--dw-surface);
+  border-color: var(--dw-surface-border);
+  color: var(--dw-text-primary);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Tracker */
+.session-tracker {
+  font-family: var(--dw-font-mono);
+  font-size: 0.75rem;
+  color: var(--dw-text-secondary);
+  display: flex;
+  gap: 0.5rem;
+  border-top: 1px solid var(--dw-surface-border);
+  width: 100%;
+  padding-top: 0.75rem;
+  justify-content: center;
+}
+
+#session-count {
+  color: var(--dw-accent-red);
+  font-weight: 700;
+}

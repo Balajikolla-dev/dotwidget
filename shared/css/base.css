@@ -1,0 +1,15 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--dw-font-sans);
+  background-color: var(--dw-bg-primary);
+  color: var(--dw-text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--dw-transition-smooth), color var(--dw-transition-smooth);
+}

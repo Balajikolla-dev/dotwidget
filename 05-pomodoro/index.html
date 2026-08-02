@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget pomodoro-container">
+      <div class="widget-label">POMODORO</div>
+
+      <!-- Mode Selector -->
+      <div class="mode-tabs">
+        <button class="tab-btn active" data-mode="work">Focus</button>
+        <button class="tab-btn" data-mode="short">Short Break</button>
+        <button class="tab-btn" data-mode="long">Long Break</button>
+      </div>
+
+      <!-- Time Display -->
+      <div class="pomodoro-display">
+        <span id="timer-display">25:00</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="pomodoro-controls">
+        <button id="btn-toggle" class="btn btn-primary">Start</button>
+        <button id="btn-reset" class="btn btn-secondary">Reset</button>
+      </div>
+
+      <!-- Session Tracker -->
+      <div class="session-tracker">
+        <span>Completed Sessions:</span>
+        <span id="session-count">0</span>
+      </div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="../shared/js/storage.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

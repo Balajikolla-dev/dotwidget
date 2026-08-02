@@ -1,0 +1,101 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.stopwatch-container {
+  width: 300px;
+  align-items: center;
+  gap: 1.25rem;
+  user-select: none;
+}
+
+.widget-label {
+  font-family: var(--dw-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--dw-text-secondary);
+  text-transform: uppercase;
+}
+
+.stopwatch-display {
+  font-family: var(--dw-font-mono);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--dw-text-primary);
+  letter-spacing: -1px;
+}
+
+.stopwatch-controls {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.6rem 0;
+  border-radius: var(--dw-radius-sm);
+  font-family: var(--dw-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--dw-transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--dw-accent-green);
+  color: #000000;
+}
+
+.btn-primary.running {
+  background-color: var(--dw-accent-orange);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: var(--dw-surface);
+  border-color: var(--dw-surface-border);
+  color: var(--dw-text-primary);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Laps */
+.laps-container {
+  width: 100%;
+  max-height: 120px;
+  overflow-y: auto;
+  border-top: 1px solid var(--dw-surface-border);
+  padding-top: 0.5rem;
+}
+
+.laps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.lap-item {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--dw-font-mono);
+  font-size: 0.8rem;
+  color: var(--dw-text-secondary);
+}
+
+.lap-item span:last-child {
+  color: var(--dw-text-primary);
+}

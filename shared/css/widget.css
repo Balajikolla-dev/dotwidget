@@ -1,0 +1,19 @@
+.dw-widget {
+  background: var(--dw-surface);
+  border: 1px solid var(--dw-surface-border);
+  backdrop-filter: var(--dw-glass-blur);
+  -webkit-backdrop-filter: var(--dw-glass-blur);
+  border-radius: var(--dw-radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--dw-shadow-sm);
+  transition: transform var(--dw-transition-fast), box-shadow var(--dw-transition-fast);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dw-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--dw-shadow-md);
+  background: var(--dw-surface-hover);
+}

@@ -1,0 +1,124 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.countdown-container {
+  width: 300px;
+  align-items: center;
+  gap: 1.25rem;
+  user-select: none;
+}
+
+.widget-label {
+  font-family: var(--dw-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--dw-text-secondary);
+  text-transform: uppercase;
+}
+
+/* Inputs View */
+.time-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Text Box Style - No Spinners */
+.input-field input {
+  width: 60px;
+  height: 55px;
+  background: var(--dw-bg-secondary);
+  border: 1px solid var(--dw-surface-border);
+  border-radius: var(--dw-radius-sm);
+  color: var(--dw-text-primary);
+  font-family: var(--dw-font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: border-color var(--dw-transition-fast), box-shadow var(--dw-transition-fast);
+}
+
+.input-field input:focus {
+  border-color: var(--dw-accent-blue);
+  box-shadow: 0 0 0 2px rgba(10, 132, 255, 0.2);
+}
+
+.input-field label {
+  font-family: var(--dw-font-mono);
+  font-size: 0.65rem;
+  color: var(--dw-text-secondary);
+  margin-top: 6px;
+}
+
+.colon {
+  font-family: var(--dw-font-mono);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dw-text-secondary);
+  margin-bottom: 14px;
+}
+
+/* Display View */
+.countdown-display {
+  font-family: var(--dw-font-mono);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--dw-text-primary);
+  height: 77px;
+  display: flex;
+  align-items: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Controls */
+.countdown-controls {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.6rem 0;
+  border-radius: var(--dw-radius-sm);
+  font-family: var(--dw-font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--dw-transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--dw-accent-blue);
+  color: #ffffff;
+}
+
+.btn-primary.active {
+  background-color: var(--dw-accent-orange);
+}
+
+.btn-secondary {
+  background: var(--dw-surface);
+  border-color: var(--dw-surface-border);
+  color: var(--dw-text-primary);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}

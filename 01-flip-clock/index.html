@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flip Clock — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget flip-clock-container">
+      <div class="flip-clock">
+        <!-- Hours -->
+        <div class="flip-card" id="h1"><div class="top"><span class="digit">0</span></div><div class="bottom"><span class="digit">0</span></div></div>
+        <div class="flip-card" id="h2"><div class="top"><span class="digit">0</span></div><div class="bottom"><span class="digit">0</span></div></div>
+
+        <span class="separator">:</span>
+
+        <!-- Minutes -->
+        <div class="flip-card" id="m1"><div class="top"><span class="digit">0</span></div><div class="bottom"><span class="digit">0</span></div></div>
+        <div class="flip-card" id="m2"><div class="top"><span class="digit">0</span></div><div class="bottom"><span class="digit">0</span></div></div>
+
+        <span class="separator">:</span>
+
+        <!-- Seconds -->
+        <div class="flip-card" id="s1"><div class="top"><span class="digit">0</span></div><div class="bottom"><span class="digit">0</span></div></div>
+        <div class="flip-card" id="s2"><div class="top"><span class="digit">0</span></div><div class="bottom"><span class="digit">0</span></div></div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

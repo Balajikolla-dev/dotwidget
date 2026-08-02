@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile & Heatmap — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget heatmap-container">
+      
+      <!-- Username Search Form -->
+      <form id="gh-form" class="gh-form">
+        <input type="text" id="gh-input" placeholder="Enter GitHub Username..." required>
+        <button type="submit" class="btn-fetch">Fetch</button>
+      </form>
+
+      <!-- Loading State -->
+      <div id="gh-loading" class="gh-loading hidden">Loading profile...</div>
+
+      <!-- Profile & Repos Content -->
+      <div id="gh-content" class="gh-content hidden">
+        <!-- User Header Card -->
+        <div class="profile-card">
+          <img id="user-avatar" class="user-avatar" src="" alt="Avatar">
+          <div class="user-details">
+            <h3 id="user-name" class="user-name"></h3>
+            <a id="user-handle" class="user-handle" target="_blank"></a>
+            <p id="user-bio" class="user-bio"></p>
+          </div>
+        </div>
+
+        <!-- Quick Stats Banner -->
+        <div class="stats-row">
+          <div class="stat-item">
+            <span id="stat-repos" class="stat-value">0</span>
+            <span class="stat-label">REPOS</span>
+          </div>
+          <div class="stat-item">
+            <span id="stat-followers" class="stat-value">0</span>
+            <span class="stat-label">FOLLOWERS</span>
+          </div>
+          <div class="stat-item">
+            <span id="stat-following" class="stat-value">0</span>
+            <span class="stat-label">FOLLOWING</span>
+          </div>
+        </div>
+
+        <!-- Top Repositories List -->
+        <div class="repos-section">
+          <div class="section-title">TOP REPOSITORIES</div>
+          <div id="repos-list" class="repos-list"></div>
+        </div>
+
+        <button id="btn-change-user" class="btn-change">Change User</button>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../shared/js/storage.js"></script>
+  <script src="../shared/js/theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

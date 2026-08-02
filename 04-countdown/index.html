@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget countdown-container">
+      <div class="widget-label">COUNTDOWN</div>
+
+      <!-- Clean 2-digit text inputs -->
+      <div id="input-group" class="time-inputs">
+        <div class="input-field">
+          <input type="text" id="input-h" maxlength="2" inputmode="numeric" value="00" placeholder="00">
+          <label for="input-h">H</label>
+        </div>
+        <span class="colon">:</span>
+        <div class="input-field">
+          <input type="text" id="input-m" maxlength="2" inputmode="numeric" value="05" placeholder="00">
+          <label for="input-m">M</label>
+        </div>
+        <span class="colon">:</span>
+        <div class="input-field">
+          <input type="text" id="input-s" maxlength="2" inputmode="numeric" value="00" placeholder="00">
+          <label for="input-s">S</label>
+        </div>
+      </div>
+
+      <!-- Display Mode -->
+      <div id="display-group" class="countdown-display hidden">
+        <span id="timer-display">00:00:00</span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="countdown-controls">
+        <button id="btn-toggle" class="btn btn-primary">Start</button>
+        <button id="btn-reset" class="btn btn-secondary">Reset</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="../shared/js/storage.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

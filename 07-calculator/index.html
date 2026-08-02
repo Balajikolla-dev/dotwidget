@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator — DotWidget</title>
+  
+  <link rel="stylesheet" href="../shared/css/variables.css">
+  <link rel="stylesheet" href="../shared/css/base.css">
+  <link rel="stylesheet" href="../shared/css/widget.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+    <div class="dw-widget calc-container">
+      <div class="widget-label">SCIENTIFIC CALC</div>
+
+      <!-- Mode Toggles -->
+      <div class="mode-tabs">
+        <button class="tab-btn active" data-mode="calc">Calc</button>
+        <button class="tab-btn" data-mode="length">Length</button>
+        <button class="tab-btn" data-mode="weight">Weight</button>
+        <button class="tab-btn" data-mode="temp">Temp</button>
+      </div>
+
+      <!-- Display Area (For Calculator Mode) -->
+      <div id="calc-display" class="calc-display">
+        <div id="calc-history" class="calc-history"></div>
+        <div id="calc-output" class="calc-output">0</div>
+      </div>
+
+      <!-- Scientific Calculator Keypad -->
+      <div id="view-calc" class="calc-grid">
+        <button class="btn btn-sci" data-fn="sin">sin</button>
+        <button class="btn btn-sci" data-fn="cos">cos</button>
+        <button class="btn btn-sci" data-fn="tan">tan</button>
+        <button class="btn btn-action" data-action="clear">AC</button>
+        <button class="btn btn-action" data-action="backspace">⌫</button>
+
+        <button class="btn btn-sci" data-fn="log">log</button>
+        <button class="btn btn-sci" data-fn="ln">ln</button>
+        <button class="btn btn-sci" data-fn="sqrt">√</button>
+        <button class="btn btn-sci" data-fn="sq">x²</button>
+        <button class="btn btn-op" data-op="/">÷</button>
+
+        <button class="btn btn-sci" data-fn="pi">π</button>
+        <button class="btn btn-num" data-num="7">7</button>
+        <button class="btn btn-num" data-num="8">8</button>
+        <button class="btn btn-num" data-num="9">9</button>
+        <button class="btn btn-op" data-op="*">×</button>
+
+        <button class="btn btn-sci" data-fn="e">e</button>
+        <button class="btn btn-num" data-num="4">4</button>
+        <button class="btn btn-num" data-num="5">5</button>
+        <button class="btn btn-num" data-num="6">6</button>
+        <button class="btn btn-op" data-op="-">-</button>
+
+        <button class="btn btn-sci" data-fn="pow">xʸ</button>
+        <button class="btn btn-num" data-num="1">1</button>
+        <button class="btn btn-num" data-num="2">2</button>
+        <button class="btn btn-num" data-num="3">3</button>
+        <button class="btn btn-op" data-op="+">+</button>
+
+        <button class="btn btn-action" data-action="percent">%</button>
+        <button class="btn btn-num" data-num="0">0</button>
+        <button class="btn btn-num" data-num=".">.</button>
+        <button class="btn btn-equals btn-span-2" data-action="equals">=</button>
+      </div>
+
+      <!-- Conversion View -->
+      <div id="view-convert" class="convert-grid hidden">
+        <div class="convert-row">
+          <input type="number" id="convert-from-val" value="1">
+          <select id="convert-from-unit"></select>
+        </div>
+        <div class="convert-arrow">↓</div>
+        <div class="convert-row">
+          <input type="text" id="convert-to-val" readonly>
+          <select id="convert-to-unit"></select>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../shared/js/theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
