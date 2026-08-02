@@ -46,12 +46,12 @@
       <span class="section-tag">PHILOSOPHY</span>
       <h2 class="section-heading">Designed with restraint.<br>Engineered for ultimate speed.</h2>
       <p class="section-lead">
-        DotWidget eliminates bloated third-party embeds. Most web components come packaged with tracking scripts, heavy frameworks, and sluggish stylesheet overlays. DotWidget is built purely on **vanilla JavaScript** and **CSS variables**—delivering **near-zero runtime latency** with zero external dependencies.
+        DotWidget eliminates bloated third-party embeds. Most web components come packaged with tracking scripts, heavy frameworks, and sluggish stylesheet overlays. DotWidget is built purely on <strong>vanilla JavaScript</strong> and <strong>CSS variables</strong>—delivering <strong>near-zero runtime latency</strong> with zero external dependencies.
       </p>
     </div>
   </section>
 
-  <!-- What You Get Section -->
+  <!-- Capabilities Section -->
   <section id="benefits" class="apple-section">
     <div class="section-container">
       <span class="section-tag">CAPABILITIES</span>
@@ -67,7 +67,7 @@
         <div class="bento-card">
           <div class="bento-icon">🎯</div>
           <h3>Single-Click Embed</h3>
-          <p>Copy responsive <code>&lt;iframe&gt;</code> code tailored specifically to your required container dimensions.</p>
+          <p>Copy responsive embed code tailored specifically for Notion or standard website <code>&lt;iframe&gt;</code> containers.</p>
         </div>
 
         <div class="bento-card">
@@ -118,28 +118,28 @@
 
             <div class="control-row">
               <label for="opt-height">Height</label>
-              <input type="text" id="opt-height" value="400px">
+              <input type="text" id="opt-height" value="380px">
             </div>
 
-            <!-- EMBED CODE & TABS SECTION -->
-          <div class="embed-section">
-            <div class="embed-header">
-              <label class="controls-title">EMBED CODE</label>
-              <!-- Toggle Tabs -->
-              <div class="embed-tabs">
-                <button id="tab-notion" class="tab-btn active" onclick="switchEmbedTab('notion')">Notion Link</button>
-                <button id="tab-iframe" class="tab-btn" onclick="switchEmbedTab('iframe')">HTML Iframe</button>
+            <div class="embed-section">
+              <div class="embed-header">
+                <label class="controls-title">EMBED CODE</label>
+                <div class="embed-tabs">
+                  <button id="tab-notion" class="tab-btn active" onclick="switchEmbedTab('notion')">Notion Link</button>
+                  <button id="tab-iframe" class="tab-btn" onclick="switchEmbedTab('iframe')">HTML Iframe</button>
+                </div>
+              </div>
+
+              <div class="code-box-wrapper">
+                <textarea id="embed-code-output" readonly rows="4"></textarea>
+                <button id="btn-copy-code" class="btn-copy">Copy Code</button>
               </div>
             </div>
-
-            <!-- Single Code Box & Copy Button -->
-            <div class="code-box-wrapper">
-              <textarea id="embed-code-output" readonly rows="4"></textarea>
-              <button id="btn-copy-code" class="btn-copy">Copy Code</button>
-            </div>
           </div>
-
         </aside>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="apple-footer">
