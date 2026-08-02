@@ -19,19 +19,19 @@
       <a href="#" class="nav-logo"><span class="dot">●</span> DotWidget</a>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#benefits">What You Get</a>
+        <a href="#benefits">Capabilities</a>
         <a href="#widgets">Collection</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Banner -->
+  <!-- Hero Section -->
   <header class="hero-section">
     <div class="hero-content">
       <span class="hero-badge">GLASSMORPHIC ENGINE</span>
       <h1 class="hero-title">Elegance in every pixel.</h1>
       <p class="hero-subtitle">
-        A suite of 10 ultra-minimalist, lightweight web widgets crafted for high-performance websites, productivity suites, and custom dashboards.
+        A suite of 10 ultra-minimalist, lightweight web widgets crafted for high-performance websites, productivity suites, and Notion dashboards.
       </p>
       <div class="hero-cta-group">
         <a href="#widgets" class="btn-apple-primary">Explore Collection</a>
@@ -40,110 +40,108 @@
     </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about" class="apple-section">
-    <div class="section-container">
-      <span class="section-tag">PHILOSOPHY</span>
-      <h2 class="section-heading">Designed with restraint.<br>Engineered for ultimate speed.</h2>
-      <p class="section-lead">
-        DotWidget eliminates bloated third-party embeds. Most web components come packaged with tracking scripts, heavy frameworks, and sluggish stylesheet overlays. DotWidget is built purely on **vanilla JavaScript** and **CSS variables**—delivering **near-zero runtime latency** with zero external dependencies.
-      </p>
-    </div>
-  </section>
+  <main>
+    <!-- About Section -->
+    <section id="about" class="apple-section">
+      <div class="section-container">
+        <span class="section-tag">PHILOSOPHY</span>
+        <h2 class="section-heading">Designed with restraint.<br>Engineered for ultimate speed.</h2>
+        <p class="section-lead">
+          DotWidget eliminates bloated third-party embeds. Built purely on <strong>vanilla JavaScript</strong> and <strong>CSS design variables</strong>, it delivers near-zero runtime latency with zero external dependencies.
+        </p>
+      </div>
+    </section>
 
-  <!-- What You Get Section -->
-  <section id="benefits" class="apple-section">
-    <div class="section-container">
-      <span class="section-tag">CAPABILITIES</span>
-      <h2 class="section-heading">Everything you need.<br>Nothing you don't.</h2>
+    <!-- Capabilities Section -->
+    <section id="benefits" class="apple-section">
+      <div class="section-container">
+        <span class="section-tag">CAPABILITIES</span>
+        <h2 class="section-heading">Everything you need.<br>Nothing you don't.</h2>
 
-      <div class="bento-grid">
-        <div class="bento-card">
-          <div class="bento-icon">⚡</div>
-          <h3>Zero Dependencies</h3>
-          <p>Built with pure HTML, CSS, and JS. No heavy libraries, no tracking scripts, and instant load times everywhere.</p>
-        </div>
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-icon">⚡</div>
+            <h3>Zero Dependencies</h3>
+            <p>Built with pure HTML, CSS, and JS. Instant load times with zero tracking scripts or heavy frameworks.</p>
+          </div>
 
-        <div class="bento-card">
-          <div class="bento-icon">🎯</div>
-          <h3>Single-Click Embed</h3>
-          <p>Copy responsive <code>&lt;iframe&gt;</code> code tailored specifically to your required container dimensions.</p>
-        </div>
+          <div class="bento-card">
+            <div class="bento-icon">🎯</div>
+            <h3>Single-Click Embed</h3>
+            <p>Copy custom embed links tailored specifically for Notion blocks or standard website <code>&lt;iframe&gt;</code> elements.</p>
+          </div>
 
-        <div class="bento-card">
-          <div class="bento-icon">🌓</div>
-          <h3>Theme Adaptive</h3>
-          <p>Built with CSS design variables that seamlessly adapt to your site's dark or light theme preferences.</p>
-        </div>
+          <div class="bento-card">
+            <div class="bento-icon">🌓</div>
+            <h3>Theme Adaptive</h3>
+            <p>Built with responsive CSS variables that dynamically blend into dark and light dashboard workspaces.</p>
+          </div>
 
-        <div class="bento-card">
-          <div class="bento-icon">🔒</div>
-          <h3>Privacy Preserving</h3>
-          <p>All data stays local. We leverage local Storage APIs so user inputs never touch external tracking servers.</p>
+          <div class="bento-card">
+            <div class="bento-icon">🔒</div>
+            <h3>Privacy Preserving</h3>
+            <p>All widget data stays local. Leverages Web Storage APIs so user inputs never touch external servers.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Widget Collection Showcase -->
-  <section id="widgets" class="apple-section">
-    <div class="section-container">
-      <span class="section-tag">THE COLLECTION</span>
-      <h2 class="section-heading">10 Purpose-built widgets.</h2>
-      <p class="section-lead">Select any widget to test live interactivity and copy the embed code.</p>
+    <!-- Widget Collection Showcase -->
+    <section id="widgets" class="apple-section">
+      <div class="section-container">
+        <span class="section-tag">THE COLLECTION</span>
+        <h2 class="section-heading">10 Purpose-built widgets.</h2>
+        <p class="section-lead">Select any widget to interact in real-time and copy embed links.</p>
 
-      <div class="app-main">
-        <!-- Gallery Grid -->
-        <div class="gallery-grid" id="gallery-grid"></div>
+        <div class="app-main">
+          <!-- Gallery Grid -->
+          <div class="gallery-grid" id="gallery-grid"></div>
 
-        <!-- Sticky Glass Preview Side Panel -->
-        <aside id="embed-panel" class="embed-panel hidden">
-          <div class="panel-header">
-            <h3 id="panel-widget-title" class="panel-title">Widget Preview</h3>
-            <button id="btn-close-panel" class="btn-close" aria-label="Close panel">✕</button>
-          </div>
-
-          <div class="preview-box">
-            <div class="preview-header">LIVE PREVIEW</div>
-            <iframe id="preview-frame" src="" frameborder="0"></iframe>
-          </div>
-
-          <div class="panel-controls">
-            <h4 class="controls-title">CUSTOMIZATION</h4>
-
-            <div class="control-row">
-              <label for="opt-width">Width</label>
-              <input type="text" id="opt-width" value="100%">
+          <!-- Sticky Glass Preview Side Panel -->
+          <aside id="embed-panel" class="embed-panel hidden">
+            <div class="panel-header">
+              <h3 id="panel-widget-title" class="panel-title">Widget Preview</h3>
+              <button id="btn-close-panel" class="btn-close" aria-label="Close panel">✕</button>
             </div>
 
-            <div class="control-row">
-              <label for="opt-height">Height</label>
-              <input type="text" id="opt-height" value="400px">
+            <div class="preview-box">
+              <span class="preview-header">LIVE PREVIEW</span>
+              <iframe id="preview-frame" src="" frameborder="0"></iframe>
             </div>
 
-            <div class="embed-section">
-  <div class="embed-header">
-    <label>EMBED CODE</label>
-    <!-- Toggle Tabs -->
-    <div class="embed-tabs">
-      <button id="tab-notion" class="tab-btn active" onclick="switchEmbedTab('notion')">Notion Link</button>
-      <button id="tab-iframe" class="tab-btn" onclick="switchEmbedTab('iframe')">HTML Iframe</button>
-    </div>
-  </div>
+            <div class="panel-controls">
+              <span class="controls-title">CUSTOMIZATION</span>
 
-  <!-- Code Output & Copy Button -->
-  <div class="code-box-wrapper">
-    <textarea id="embed-code-output" readonly rows="4"></textarea>
-    <button id="btn-copy-code" class="btn-copy" onclick="copyCurrentEmbedCode()">Copy Code</button>
-  </div>
-</div>
+              <div class="control-row">
+                <label for="opt-width">Width</label>
+                <input type="text" id="opt-width" value="100%">
+              </div>
 
-    <!-- Dynamic Code Preview Box -->
-    <div class="code-box-wrapper">
-      <textarea id="embed-code-box" readonly rows="4"></textarea>
-      <button id="copy-btn" class="copy-purple-btn" onclick="copyCurrentEmbedCode()">Copy Code</button>
-    </div>
-  </div>
+              <div class="control-row">
+                <label for="opt-height">Height</label>
+                <input type="text" id="opt-height" value="380px">
+              </div>
+
+              <div class="embed-section">
+                <div class="embed-header">
+                  <span class="controls-title">EMBED CODE</span>
+                  <div class="embed-tabs">
+                    <button id="tab-notion" class="tab-btn active" onclick="switchEmbedTab('notion')">Notion Link</button>
+                    <button id="tab-iframe" class="tab-btn" onclick="switchEmbedTab('iframe')">HTML Iframe</button>
+                  </div>
+                </div>
+
+                <div class="code-box-wrapper">
+                  <textarea id="embed-code-output" readonly rows="3"></textarea>
+                  <button id="btn-copy-code" class="btn-copy">Copy Link</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="apple-footer">
