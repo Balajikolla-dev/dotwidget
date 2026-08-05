@@ -698,3 +698,52 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* Custom Mini Preview Visuals for Marquee Cards */
+.card-mini-ui {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-family: var(--font-sans, sans-serif);
+}
+
+.calendar-mini-ui { text-align: center; }
+.cal-head { font-size: 0.7rem; font-weight: 800; color: #2563eb; text-transform: uppercase; }
+.cal-body { font-size: 2rem; font-weight: 900; line-height: 1; }
+
+.stopwatch-mini-ui { display: flex; align-items: baseline; gap: 2px; }
+.time-ms { font-size: 0.9rem; font-weight: 700; color: #f59e0b; font-family: monospace; }
+
+.countdown-mini-ui { text-align: center; display: flex; flex-direction: column; }
+.days-num { font-size: 1.8rem; font-weight: 900; line-height: 1; color: #10b981; }
+.days-label { font-size: 0.65rem; font-weight: 800; color: #6b7280; }
+
+.pomodoro-mini-ui { text-align: center; display: flex; flex-direction: column; }
+.pomo-time { font-size: 1.8rem; font-weight: 900; font-family: monospace; color: #2563eb; }
+.pomo-label { font-size: 0.65rem; font-weight: 800; color: #6b7280; }
+
+.habit-mini-ui { font-size: 0.75rem; font-weight: 700; width: 100%; padding: 0 0.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+.check-row { display: flex; justify-content: space-between; background: #fff; padding: 0.25rem 0.5rem; border-radius: 6px; }
+
+.calc-mini-ui { width: 100%; padding: 0 0.5rem; text-align: right; }
+.calc-screen { font-family: monospace; font-weight: 800; font-size: 1.1rem; background: #fff; padding: 0.2rem 0.4rem; border-radius: 4px; margin-bottom: 0.3rem; }
+.calc-grid-dots { display: flex; justify-content: space-between; font-weight: 800; font-size: 0.75rem; color: #6b7280; }
+
+.progress-mini-ui { width: 100%; padding: 0 0.5rem; text-align: center; }
+.prog-perc { font-size: 1.2rem; font-weight: 900; color: #8b5cf6; }
+.prog-bar-bg { background: #e5e7eb; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 0.3rem; }
+.prog-bar-fill { background: #8b5cf6; height: 100%; border-radius: 4px; }
+
+.github-mini-ui { text-align: center; }
+.gh-avatar { font-size: 1.6rem; margin-bottom: 0.2rem; }
+.gh-dots { display: flex; gap: 3px; }
+.gh-dots span { width: 8px; height: 8px; border-radius: 2px; }
+.c-1 { background: #ebedf0; }
+.c-2 { background: #9be9a8; }
+.c-3 { background: #40c463; }
+.c-4 { background: #216e39; }
+
+.weather-mini-ui { text-align: center; display: flex; flex-direction: column; }
+.weather-icon { font-size: 1.2rem; font-weight: 800; }
+.weather-city { font-size: 0.75rem; font-weight: 700; color: #6b7280; }
