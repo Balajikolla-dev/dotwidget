@@ -1,144 +1,143 @@
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #0d0e10;
+:root {
+  --bg-color: #121417;
+  --card-bg: #1e2228;
+  --card-text: #ffffff;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --accent-amber: #f59e0b;
 }
 
-.flip-clock-container {
-  padding: 2.5rem 3rem;
-  background: rgba(18, 20, 24, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.flip-clock {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  user-select: none;
-}
-
-.separator {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #f7e15e;
-  margin: 0 0.2rem;
-  line-height: 1;
-}
-
-/* Base Card Shell */
-.flip-card {
-  position: relative;
-  width: 60px;
-  height: 90px;
-  background-color: #1e2026;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 4rem;
-  font-weight: 800;
-  color: #f7e15e;
-  perspective: 300px;
-}
-
-/* Static Halves & Animating Flaps */
-.flip-card .top,
-.flip-card .bottom,
-.flip-card .top-flip,
-.flip-card .bottom-flip {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 50%;
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
   overflow: hidden;
-  background-color: #1e2026;
-  backface-visibility: hidden;
-}
-
-.flip-card .top,
-.flip-card .top-flip {
-  top: 0;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  border-bottom: 1px solid #0d0e10;
-  transform-origin: bottom;
-}
-
-.flip-card .bottom,
-.flip-card .bottom-flip {
-  bottom: 0;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  transform-origin: top;
-}
-
-/* Number Centering via Absolute Offset */
-.digit {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 90px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.top .digit,
-.top-flip .digit {
-  top: 0;
+.clock-wrapper {
+  container-type: inline-size;
+  width: 100%;
+  max-width: 100%;
+  padding: 4cqw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.bottom .digit,
-.bottom-flip .digit {
-  bottom: 0;
+.clock-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5cqw;
+  background: var(--bg-color);
+  padding: 5cqw 6cqw;
+  border-radius: 4cqw;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  width: fit-content;
 }
 
-/* Side Notch Details */
-.flip-card::before,
-.flip-card::after {
-  content: '';
+.clock-divider {
+  font-size: 14cqw;
+  font-weight: 900;
+  color: var(--accent-amber);
+  line-height: 1;
+  margin-top: -3cqw;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+.flip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unit-label {
+  font-size: 2.8cqw;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #8b949e;
+  margin-top: 2cqw;
+}
+
+.digital-card {
+  position: relative;
+  width: 26cqw;
+  height: 34cqw;
+  background: var(--card-bg);
+  border-radius: 2.5cqw;
+  font-size: 20cqw;
+  font-weight: 800;
+  color: var(--card-text);
+  perspective: 500px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.digital-card::after {
+  content: "";
   position: absolute;
   top: 50%;
-  width: 4px;
-  height: 6px;
-  background: #0d0e10;
-  margin-top: -3px;
-  z-index: 20;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  transform: translateY(-50%);
 }
 
-.flip-card::before { left: 0; border-radius: 0 2px 2px 0; }
-.flip-card::after { right: 0; border-radius: 2px 0 0 2px; }
-
-/* 3D Animations */
-.flip-card .top-flip {
-  animation: flip-top 250ms ease-in forwards;
+.top, .bottom, .leaf-top, .leaf-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  text-align: center;
 }
 
-.flip-card .bottom-flip {
-  animation: flip-bottom 250ms ease-out 250ms forwards;
+.top, .leaf-top {
+  top: 0;
+  height: 50%;
+  line-height: 34cqw;
+  border-radius: 2.5cqw 2.5cqw 0 0;
+  background: #252a32;
 }
 
-@keyframes flip-top {
-  100% {
-    transform: rotateX(-90deg);
-  }
+.bottom, .leaf-bottom {
+  bottom: 0;
+  height: 50%;
+  line-height: 0cqw;
+  border-radius: 0 0 2.5cqw 2.5cqw;
+  background: #1e2228;
 }
 
-@keyframes flip-bottom {
-  0% {
-    transform: rotateX(90deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
-}
-.flip-card .top-flip {
-  animation: flip-top 150ms ease-in forwards;
+.flip-leaf {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 
-.flip-card .bottom-flip {
-  animation: flip-bottom 150ms ease-out 150ms forwards;
+.flip-leaf.flip {
+  transform: rotateX(-180deg);
+}
+
+.leaf-bottom {
+  transform: rotateX(180deg);
 }
