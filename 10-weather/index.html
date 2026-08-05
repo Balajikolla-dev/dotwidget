@@ -3,62 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather — DotWidget</title>
-  
-  <link rel="stylesheet" href="../shared/css/variables.css">
-  <link rel="stylesheet" href="../shared/css/base.css">
-  <link rel="stylesheet" href="../shared/css/widget.css">
+  <title>Weather Widget — DotWidget</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <main class="container">
-    <div class="dw-widget weather-container">
-      <div class="widget-label">WEATHER</div>
+  <div class="weather-wrapper">
+    <div class="weather-container">
+      
+      <!-- Current Header Stats -->
+      <div class="weather-header">
+        <div class="location-info">
+          <h2 class="city-name" id="city">VANCOUVER</h2>
+          <span class="sub-label">WEATHER</span>
+        </div>
 
-      <!-- Location Input View -->
-      <form id="location-form" class="location-form">
-        <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off" required>
-        <button type="submit" class="btn-search">Search</button>
-      </form>
+        <div class="current-icon-wrapper" id="current-icon">
+          🌙
+        </div>
 
-      <!-- Loading State -->
-      <div id="weather-loading" class="weather-loading hidden">
-        <span>Fetching weather...</span>
+        <div class="current-temp-wrapper">
+          <div class="temp-val"><span id="temp">18</span>°C</div>
+          <div class="weather-desc" id="condition">clear sky</div>
+        </div>
       </div>
 
-      <!-- Weather Display View -->
-      <div id="weather-content" class="weather-content hidden">
-        <div class="weather-main">
-          <div id="weather-icon" class="weather-icon">☀️</div>
-          <div class="weather-temp">
-            <span id="temp-val">--</span><span class="unit">°C</span>
-          </div>
+      <!-- 7-Day Extended Forecast Bar (Hidden on narrow containers) -->
+      <div class="forecast-grid" id="forecast">
+        <div class="forecast-day">
+          <span class="day-name">Wed</span>
+          <span class="day-icon">🌙</span>
+          <span class="high-temp">24°C</span>
+          <span class="low-temp">14°C</span>
         </div>
-
-        <div class="weather-details">
-          <div id="weather-condition" class="condition">Clear Sky</div>
-          <div id="weather-location" class="location">City, Country</div>
+        <div class="forecast-day">
+          <span class="day-name">Thu</span>
+          <span class="day-icon">🌙</span>
+          <span class="high-temp">24°C</span>
+          <span class="low-temp">14°C</span>
         </div>
-
-        <div class="weather-stats">
-          <div class="stat">
-            <span class="stat-label">HUMIDITY</span>
-            <span id="stat-humidity" class="stat-val">--%</span>
-          </div>
-          <div class="stat">
-            <span class="stat-label">WIND</span>
-            <span id="stat-wind" class="stat-val">-- km/h</span>
-          </div>
+        <div class="forecast-day">
+          <span class="day-name">Fri</span>
+          <span class="day-icon">🌙</span>
+          <span class="high-temp">23°C</span>
+          <span class="low-temp">14°C</span>
         </div>
-
-        <button id="btn-change-location" class="btn-change">Change Location</button>
+        <div class="forecast-day">
+          <span class="day-name">Sat</span>
+          <span class="day-icon">🌙</span>
+          <span class="high-temp">22°C</span>
+          <span class="low-temp">16°C</span>
+        </div>
+        <div class="forecast-day">
+          <span class="day-name">Sun</span>
+          <span class="day-icon">⛅</span>
+          <span class="high-temp">20°C</span>
+          <span class="low-temp">16°C</span>
+        </div>
+        <div class="forecast-day">
+          <span class="day-name">Mon</span>
+          <span class="day-icon">🌤️</span>
+          <span class="high-temp">21°C</span>
+          <span class="low-temp">15°C</span>
+        </div>
+        <div class="forecast-day">
+          <span class="day-name">Tue</span>
+          <span class="day-icon">🌧️</span>
+          <span class="high-temp">21°C</span>
+          <span class="low-temp">16°C</span>
+        </div>
       </div>
+
     </div>
-  </main>
+  </div>
 
-  <script src="../shared/js/theme.js"></script>
-  <script src="../shared/js/storage.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
