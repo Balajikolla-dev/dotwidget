@@ -31,9 +31,8 @@
 
   function tick() {
     const now = new Date();
-    // 12-hour clock format (use now.getHours() if 24-hour is preferred)
     let hours = now.getHours() % 12;
-    hours = hours ? hours : 12; 
+    hours = hours ? hours : 12;
 
     updateUnit('hours', hours);
     updateUnit('minutes', now.getMinutes());

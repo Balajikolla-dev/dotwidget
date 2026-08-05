@@ -15,15 +15,14 @@
 html, body {
   width: 100%;
   height: 100%;
-  background-color: transparent; /* Blends natively into dark mode Notion */
-  overflow: hidden; /* Prevents scrollbars in Notion */
+  background-color: transparent;
+  overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Fluid Container Query Engine */
 .clock-wrapper {
   container-type: inline-size;
   width: 100%;
@@ -75,7 +74,6 @@ html, body {
   margin-top: 2cqw;
 }
 
-/* Scalable 3D Card */
 .digital-card {
   position: relative;
   width: 26cqw;
@@ -90,7 +88,6 @@ html, body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Split Line */
 .digital-card::after {
   content: "";
   position: absolute;
