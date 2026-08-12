@@ -1,7 +1,7 @@
 # DotWidget: Ultra-Lightweight Widgets for Notion & Web
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Balajikolla-dev/dotwidget/main/path/to/image_1.png" alt="DotWidget Hero Banner" width="100%">
+  <img src="shared/dotwidget.png" alt="DotWidget Hero Banner" width="100%">
 </div>
 
 > **Lightweight widgets for Notion & modern web apps.**
@@ -23,7 +23,7 @@ DotWidget is a growing collection of minimalist, zero-dependency widgets hosted 
 ## 📂 The Collection
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Balajikolla-dev/dotwidget/main/path/to/image_2.png" alt="DotWidget Collection Overview" width="100%">
+  <img src="shared/widgets overview.png" alt="DotWidget Collection Overview" width="100%">
 </div>
 
 DotWidget currently includes (with more being added):
@@ -60,7 +60,7 @@ DotWidget is hosted live on GitHub Pages: [**Try the Demo**](https://balajikolla
 3.  **Embed:** Click "Copy Notion Link" or "HTML Iframe" and paste it directly into your destination app.
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Balajikolla-dev/dotwidget/main/path/to/image_0.png" alt="DotWidget Configuration Flow" width="80%">
+  <img src="shared/flipclock.png" alt="DotWidget Configuration Flow" width="80%">
 </div>
 
 ---
